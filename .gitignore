@@ -1,0 +1,12 @@
+# Visual Studio temporary files
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+
+# Python virtual env (optional)
+venv/
+__pycache__/
