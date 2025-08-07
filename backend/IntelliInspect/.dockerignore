@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/.vscode/
+**/.idea/
+**/.git/
+Dockerfile
+docker-compose.yaml
+*.md
+*.user
+*.suo

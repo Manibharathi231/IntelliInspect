@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend/IntelliInspect
+    ports:
+      - "5012:80"  # Maps container port 80 to localhost:5012
+    depends_on:
+      - mlservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ML_SERVICE_URL=http://mlservice:8000
+    container_name: intelliinspect-backend
+    restart: unless-stopped
+
+  mlservice:
+    build:
+      context: ./ml-service
+    ports:
+      - "8000:8000"  # Maps container port 8000 to localhost:8000
+    container_name: intelliinspect-mlservice
+    restart: unless-stopped
+
