@@ -17,7 +17,7 @@ class TrainRequest(BaseModel):
     testStart: str
     testEnd: str
 
-# 🚀 1. Train model
+# 1. Train model
 @app.post("/train-model")
 def train_model(request: TrainRequest):
     df = pd.read_csv(DATASET_PATH)
@@ -52,7 +52,7 @@ def train_model(request: TrainRequest):
         "f1_score": round(f1_score(y_test, preds, zero_division=0), 4)
     }
 
-# 📊 2. Evaluate uploaded file and return metrics & training logs
+# 2. Evaluate uploaded file and return metrics & training logs
 @app.post("/evaluate-existing-model")
 async def evaluate_model(file: UploadFile = File(...)):
     df = pd.read_csv(file.file)
@@ -95,3 +95,4 @@ async def evaluate_model(file: UploadFile = File(...)):
         "training_loss": loss_list,
         "confusion_counts": cm_values
     }
+
